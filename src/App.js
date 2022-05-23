@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import Count from "./components/count"
+import './App.css'
+class App extends Component {
+    state = {
+      count: 0,
+      isPremium:false
+    }
+  
+  incrementation=()=>{
+    this.setState({ count: this.state.count+1 })
+  }
+  connection=()=>{this.setState({isPremium:!this.state.isPremium})}
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+ affichage=()=> {
+    const {count}=this.state
+    return (
+      <div><h1>Salut</h1>
+      <p className={count<10?"red":"green"}>{count}</p>
+      <p>{count>5 ? "+5":null}</p>
+      <p>{count===8 ? "BRAVO":null}</p>
+      
+      <button onClick={this.incrementation}>increment</button></div>  
+    )  
 }
 
-export default App;
+render(){
+    return(
+        <>
+        <Count 
+        connection={this.connection}
+        affichage={this.affichage}
+        isPremium={this.state.isPremium}/>
+
+        </>
+    )
+}
+}
+export default App
+
+
