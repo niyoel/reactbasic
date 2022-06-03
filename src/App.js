@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Count from "./components/count"
 import './App.css'
+import Notifications from './components/notifications'
 class App extends Component {
     state = {
       count: 0,
@@ -31,6 +32,8 @@ render(){
         connection={this.connection}
         affichage={this.affichage}
         isPremium={this.state.isPremium}/>
+       <Notifications
+        affichage={this.affichage}/>
 
         </>
     )
