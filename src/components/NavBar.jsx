@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import Notifications from '../components/notifications';
 
 
-const NavBar = () => {
+const NavBar = (props) => {
   return (  
   <>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -13,9 +14,9 @@ const NavBar = () => {
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item">
+        {/* <li class="nav-item">
         <Link class="nav-link active" aria-current="page" to= "notifications">Notifications</Link>
-        </li>
+        </li> */}
         <li class="nav-item">
           <Link class="nav-link active" aria-current="page" to= "etudiants">Etudiants</Link>
         </li>
@@ -25,6 +26,8 @@ const NavBar = () => {
         <li class="nav-item">
         <Link class="nav-link active" aria-current="page" to= "cards">Cards</Link>
         </li>
+        <Notifications handleNotification={props.handleNotification} 
+          notif= {props.notif}/>
       </ul>
     </div>
   </div>

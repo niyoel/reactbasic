@@ -28,19 +28,19 @@ class Text extends Component {
     handleNotification=()=>{
       this.setState({notif:this.state.notif+1})
   }
-  handleDelete=player=>{
-    console.log(player)
+  handleDelete=classement=>{
+   const classementscopy=[...this.state.classements]
+   const classements = classementscopy.filter(c=>c!==classement)
+   this.setState({classements})
   }
   render() {
     return (
       <>
        <BrowserRouter>
-       <NavBar />
+       <NavBar  handleNotification={this.handleNotification} 
+          notif= {this.state.notif}/>
        <Routes>
        <Route path="/etudiants" element={<Etudiants etudiants={this.state.etudiants} />}/>
-       <Route path="/notifications" element={<Notifications 
-          handleNotification={this.handleNotification} 
-          notif= {this.state.notif}/>}/>
        <Route path="/cards" element={<Cards />}/>
        <Route path="/classements" element={<Classements onDelete={this.handleDelete}  classements={this.state.classements} />}/>
 

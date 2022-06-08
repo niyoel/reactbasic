@@ -16,7 +16,7 @@ const Classements = (props) => {
         {sort_class.map((classement) => (
           <tr>
             <th scope="row">{sort_class.indexOf(classement) + 1}</th>
-            <td>{classement.nom}</td>
+            <td style={{color:"blue"}}>{classement.nom}</td>
             <td>{classement.prenom}</td>
             <td>{classement.score}</td>
             <td> <button onClick={()=>props.onDelete(classement)} className='btn btn-danger'>Delete</button></td>
